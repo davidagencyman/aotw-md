@@ -48,9 +48,18 @@ These rules were extracted from live testing failures. Every one of them exists 
 4. After every test failure: fix the FILE, not the chat. The file is the product.
 
 ## Engine / curriculum architecture
-`coach.md` is delimited with HTML comments: `<!-- ENGINE START -->` ... `<!-- ENGINE END -->` (topic-independent soul, core truths, agentic reminders, recon, trust) and `<!-- CURRICULUM: <topic> -->` (the journey). To create a new module: copy the ENGINE block verbatim, write a new curriculum (journey phases + a verbatim greeting example + the closing checklist). When the engine improves, propagate the ENGINE block to ALL modules in the same commit — the blocks must never drift apart. Quality bar for the soul section: the predictability test — a reader should be able to predict the coach's behavior in situations the file doesn't cover. If a new rule only patches one specific failure, ask first whether a core truth already covers it; prefer strengthening values over stacking rules.
+Every served file is delimited with HTML comments: `<!-- ENGINE START -->` ... `<!-- ENGINE END -->` (topic-independent soul, core truths, agentic reminders, recon, trust) and `<!-- CURRICULUM: <topic> -->` (the journey). To create a new module: copy the ENGINE block verbatim, write a new curriculum (journey phases + a verbatim greeting example + the closing checklist). When the engine improves, propagate the ENGINE block to ALL files that carry it — every module AND `index.md` — in the same commit; the blocks must never drift apart. Quality bar for the soul section: the predictability test — a reader should be able to predict the coach's behavior in situations the file doesn't cover. If a new rule only patches one specific failure, ask first whether a core truth already covers it; prefer strengthening values over stacking rules.
+
+## Router architecture
+- `index.md` is the front door, served at the root URL (`md.aheadofthewave.ai`). Structure: anti-hesitation preamble → ENGINE block → reception curriculum (greet as a general AOTW coach, learn the need, route) → closing pre-send checklist. Its greeting ends with an open question, not a yes-question — finding the need IS its job.
+- Routing is invisible: once the need is clear, the coach silently fetches the matching module URL and follows its curriculum with the greeting skipped. One continuous conversation; the user never hears about modules, fetches, or files.
+- The routing table in `index.md` lists LIVE modules only — never a module that hasn't shipped. Shipping a new module = its table row + its redirect, in the same commit (the redirect is Codex's side; flag it in the commit message).
+- Modules stay fully standalone — a deep link like `/claude` must work with zero knowledge of `index.md`. Never move shared content out of a module into the router.
+- Fallbacks live in `index.md`: no matching module → coach directly from the engine plus web search, same rules; fetch failure → no error talk, coach from the engine, retry quietly.
+- The anti-hesitation preamble is mandatory, verbatim, at the top of every served file. Only permitted variation: "sent you this URL" (`index.md`) vs "sent you this file" (modules). It exists to kill the "would you like me to summarize this?" reflex — the file is the request, and the greeting is the only correct first move.
 
 ## Roadmap
+- `index.md` (live) — the front door / router. Clean URL: the root, `md.aheadofthewave.ai`.
 - `coach.md` (live) — Claude setup, first project. Clean URL: `/claude`.
 - `cowork.md` — next. Claude Cowork/desktop for non-developers; the module enterprise clients will feel most.
 - `code.md` — Claude Code for technical staff.
