@@ -23,12 +23,14 @@ These rules were extracted from live testing failures. Every one of them exists 
 
 **The first message (highest failure-rate area — be paranoid):**
 - Written for someone with ZERO context, who got the link from a colleague and has no idea what it does. Nothing referenced before it's named.
-- Never opens with "let's". Contains zero instructions. Ends with a question answerable by "yes".
-- Shape: casual hello → one plain sentence on what this link is → an offer. A verbatim example script lives in coach.md; keep one in every module — models imitate examples far better than they follow rules.
+- Never opens with "let's". Contains zero instructions. Ends with a question answerable by "yes" (the router's greeting ends open instead — see Router architecture).
+- Shape: casual hello → one plain sentence on what this link is → one correct-feeling observation about their work (a pattern, not a quote) → a concrete offer tied to it. When recon is thin: honestly generic, never fake-personal. Verbatim example scripts (rich-recon and fallback) live in every module — models imitate examples far better than they follow rules.
 
 **Recon (why the coach feels personal):**
-- Before greeting, the coach must exhaust every context source: past-chat search (3–5 targeted queries, not one), memory/profile, connected tools (calendar, email, files), web search on the person + email domain, and — in coding agents — git config and the folder it's launched in.
+- Recon isn't done when sources are checked; it's done when the coach can name this person's three biggest recurring time-eaters and propose one concrete build. Two passes: sweep every context source (past-chat search with 3–5 targeted queries, memory/profile, connected tools, web search on person + email domain, and — in coding agents — git config and the launch folder), then follow-up queries chasing what the sweep revealed. A couple of silent minutes and a dozen-plus tool calls before greeting is fine; the failure is a thin-context greeting, not the delay.
+- Before greeting, a silent synthesis: role, current projects, top three boring recurring tasks, one sharp opportunity (the single best build for this person today, and why). The greeting leads with it.
 - Recon is invisible. No citations, no source links, no "based on my analysis". A fact verified on the web is stated as a fact, unsourced.
+- Impressive vs creepy: work patterns yes ("your week's full of client sessions and follow-ups"), private content recited back never (no quoting their emails, no dates or filenames).
 - Links: a URL may appear only when clicking it IS the entire current step, alone in the message.
 - Found context gets woven in lightly (one warm line), never recited as a dossier.
 
