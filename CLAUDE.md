@@ -50,6 +50,10 @@ These rules were extracted from live testing failures. Every one of them exists 
 3. The real test: a non-technical person with zero briefing. Davit knows too much to be confused properly.
 4. After every test failure: fix the FILE, not the chat. The file is the product.
 
+## Maintenance
+- The ChatGPT pacing ceiling — how many turns it holds one-step-at-a-time coaching before drifting into lists — moves with platform updates. Retest monthly: fresh chat, full run, note the drift turn. Adjust rules only from observed failures, per the rulebook.
+- The official share line (the "standing orders" snippet) lives in README.md and in the landing-page template (`scripts/build-index.mjs` — Codex's file; its user-facing copy edited by exception, on instruction). If the wording ever changes, change both in the same commit.
+
 ## Engine / curriculum architecture
 Every served file is delimited with HTML comments: `<!-- ENGINE START -->` ... `<!-- ENGINE END -->` (topic-independent soul, core truths, agentic reminders, recon, trust) and `<!-- CURRICULUM: <topic> -->` (the journey). To create a new module: copy the ENGINE block verbatim, write a new curriculum (journey phases + a verbatim greeting example + the closing checklist). When the engine improves, propagate the ENGINE block to ALL files that carry it — every module AND `index.md` — in the same commit; the blocks must never drift apart. Quality bar for the soul section: the predictability test — a reader should be able to predict the coach's behavior in situations the file doesn't cover. If a new rule only patches one specific failure, ask first whether a core truth already covers it; prefer strengthening values over stacking rules.
 
