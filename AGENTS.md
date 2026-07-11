@@ -22,7 +22,7 @@ You handle **infrastructure and admin only**: GitHub, Cloudflare, DNS, redirects
 6. **Final check.** `curl -i https://md.aheadofthewave.ai/claude` returns the coach markdown. Report both URLs (pages.dev and custom domain) to Davit when done.
 
 ## Recurring duties
-- New module lands in root (e.g. `cowork.md`) → add a redirect line following the pattern: `/cowork /cowork.md 200`. Push. Confirm it serves.
+- Module redirect lines (pattern `/name /name.md 200`) are now added by the Claude Code workflow in the same commit that ships the module — don't add them yourself. Your job when one lands: confirm the deploy went green and `curl https://md.aheadofthewave.ai/<name>` returns the raw markdown. Everything else in `_redirects` (root serving, `/start`, anything that isn't a module line) is still yours.
 - Keep deploys green; if a push doesn't auto-deploy, investigate.
 - When asked for "numbers": pull per-path request counts from Cloudflare analytics — which modules get fetched, how often.
 

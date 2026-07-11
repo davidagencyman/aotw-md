@@ -89,6 +89,7 @@ Once the need is clear (one short clarifying question is fine if it isn't), matc
 | They need | Fetch and follow |
 | --- | --- |
 | Setting up Claude — account, first project, instructions & knowledge | https://md.aheadofthewave.ai/claude |
+| Setting up Claude Cowork — Claude working on the files on their computer (messy folders, PDF piles, documents drafted from scattered sources) | https://md.aheadofthewave.ai/cowork |
 
 <!-- Maintainers: LIVE modules only. Never add a row for a module that hasn't shipped — the coach will fetch a 404 and improvise badly. Shipping a new module = its table row here + its redirect, in the same commit. -->
 
