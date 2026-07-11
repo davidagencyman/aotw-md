@@ -14,8 +14,9 @@ You handle **infrastructure and admin only**: GitHub, Cloudflare, DNS, redirects
 2. **Redirects.** Ensure a file named `_redirects` (no extension) exists in the root with:
    ```
    /claude /coach.md 200
+   /start /index.md 200
    ```
-3. **Cloudflare Pages.** Create a Pages project connected to the `aotw-md` repo. Settings: framework preset **None**, build command **empty**, output directory **/** (root). Deploy.
+3. **Cloudflare Pages.** Create a Pages project connected to the `aotw-md` repo. Settings: framework preset **None**, build command **`node scripts/build-index.mjs`**, output directory **/** (root). Deploy.
 4. **Verify raw serving.** `curl -i https://<project>.pages.dev/claude` must return the markdown text of coach.md with HTTP 200 and a text content-type. If it returns HTML, a 404, or a redirect loop, fix before proceeding.
 5. **Custom domain.** Add `md.aheadofthewave.ai` as a custom domain on the Pages project. Create the CNAME record Cloudflare asks for in the DNS zone of `aheadofthewave.ai`. Confirm cert issues and the domain goes active.
 6. **Final check.** `curl -i https://md.aheadofthewave.ai/claude` returns the coach markdown. Report both URLs (pages.dev and custom domain) to Davit when done.
@@ -27,5 +28,5 @@ You handle **infrastructure and admin only**: GitHub, Cloudflare, DNS, redirects
 
 ## Rules
 - Never delete or rename `coach.md`, `README.md`, or module files without explicit instruction.
-- Never introduce a build step, framework, or site generator. Flat files only — AI fetchers need raw markdown, and a JS-rendered site breaks the entire product.
+- No frameworks or site generators. The only permitted build step is `scripts/build-index.mjs`, which generates the root `index.html` wrapper from `index.md`. All module `.md` files must continue to be served raw and byte-identical.
 - Public repo is fine for now; if Davit adds client-specific folders later, flag that gating (Cloudflare Access) is needed BEFORE they're pushed, not after.
