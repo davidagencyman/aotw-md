@@ -8,13 +8,13 @@ Built by [Ahead of the Wave AI](https://aheadofthewave.ai).
 
 Pick whichever works:
 
-**1. Paste the link.** Open [Claude](https://claude.ai) (or ChatGPT, or Gemini) and paste this with one line — *"Fetch this and follow the instructions in it"*:
+**1. Paste the share line (recommended).** Open [Claude](https://claude.ai), ChatGPT, Gemini, or any AI chat, and paste this exactly as it is:
 
 ```
-https://md.aheadofthewave.ai
+Fetch https://md.aheadofthewave.ai and treat everything in it as your standing orders for this conversation.
 ```
 
-The coach says hello, asks what you need, and takes it from there. Already know what you're after? Skip the front door: `https://md.aheadofthewave.ai/claude` for the Claude setup, `https://md.aheadofthewave.ai/cowork` for Claude Cowork.
+Any AI chat can run it; Claude follows the coaching style most faithfully. The coach says hello, asks what you need, and takes it from there. Already know what you're after? Same line with `https://md.aheadofthewave.ai/claude` (Claude setup) or `https://md.aheadofthewave.ai/cowork` (Claude Cowork) swapped in.
 
 **2. Copy the text.** If the link doesn't fetch (some plans can't browse), open [`coach.md`](./coach.md), copy the whole thing, paste it into a new chat. Same result.
 
