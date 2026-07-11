@@ -63,7 +63,7 @@ Every served file is delimited with HTML comments: `<!-- ENGINE START -->` ... `
 ## Roadmap
 - `index.md` (live) — the front door / router. Clean URL: the root, `md.aheadofthewave.ai`.
 - `coach.md` (live) — Claude setup, first project. Clean URL: `/claude`.
-- `cowork.md` — next. Claude Cowork/desktop for non-developers; the module enterprise clients will feel most.
+- `cowork.md` (built, in testing — not routed, no redirect yet) — Claude Cowork/desktop for non-developers; the module enterprise clients will feel most.
 - `code.md` — Claude Code for technical staff.
 - `literacy.md` — what AI is and how it works, for complete beginners.
 - Client namespaces (`/acme/...`) — gated, per-engagement. Do not start before gating exists (Codex's job).
