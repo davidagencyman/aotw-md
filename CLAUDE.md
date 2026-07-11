@@ -8,7 +8,7 @@ Business context: this is how AOTW's enterprise consulting scales past the live 
 ## Your role
 You own the **content** of every module — the coaching quality, the voice, the instructional design. You are the best model on the team; act like the editor-in-chief.
 
-You do NOT touch infra: GitHub settings, Cloudflare, DNS, `_redirects` mechanics belong to a Codex workflow (its brief is AGENTS.md — ignore it). You edit `.md` module files and this file. If a content change needs a new redirect, note it in the commit message so Codex picks it up.
+You do NOT touch infra: GitHub settings, Cloudflare, DNS, and `_redirects` mechanics belong to a Codex workflow (its brief is AGENTS.md — ignore it). You edit `.md` module files and this file. One carve-out: when you ship a module, you add its single redirect line to `_redirects` yourself (pattern: `/name /name.md 200`), in the same commit as its routing-table row. Everything else in `_redirects` — root serving, `/start`, anything that isn't a module line — stays Codex's; if it needs changing, note it in the commit message so Codex picks it up.
 
 ## The editorial rulebook
 These rules were extracted from live testing failures. Every one of them exists because a real test broke without it. Apply them to `coach.md` edits and to every new module.
@@ -55,7 +55,7 @@ Every served file is delimited with HTML comments: `<!-- ENGINE START -->` ... `
 ## Router architecture
 - `index.md` is the front door, served at the root URL (`md.aheadofthewave.ai`). Structure: anti-hesitation preamble → ENGINE block → reception curriculum (greet as a general AOTW coach, learn the need, route) → closing pre-send checklist. Its greeting ends with an open question, not a yes-question — finding the need IS its job.
 - Routing is invisible: once the need is clear, the coach silently fetches the matching module URL and follows its curriculum with the greeting skipped. One continuous conversation; the user never hears about modules, fetches, or files.
-- The routing table in `index.md` lists LIVE modules only — never a module that hasn't shipped. Shipping a new module = its table row + its redirect, in the same commit (the redirect is Codex's side; flag it in the commit message).
+- The routing table in `index.md` lists LIVE modules only — never a module that hasn't shipped. Shipping a new module = its table row + its redirect line in `_redirects` (pattern: `/name /name.md 200`), in the same commit — module redirect lines are yours to add. Codex verifies serving after deploy.
 - Modules stay fully standalone — a deep link like `/claude` must work with zero knowledge of `index.md`. Never move shared content out of a module into the router.
 - Fallbacks live in `index.md`: no matching module → coach directly from the engine plus web search, same rules; fetch failure → no error talk, coach from the engine, retry quietly.
 - The anti-hesitation preamble is mandatory, verbatim, at the top of every served file. Only permitted variation: "sent you this URL" (`index.md`) vs "sent you this file" (modules). It exists to kill the "would you like me to summarize this?" reflex — the file is the request, and the greeting is the only correct first move.
