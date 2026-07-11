@@ -25,6 +25,7 @@ These rules were extracted from live testing failures. Every one of them exists 
 - Written for someone with ZERO context, who got the link from a colleague and has no idea what it does. Nothing referenced before it's named.
 - Never opens with "let's". Contains zero instructions. Ends with a question answerable by "yes" (the router's greeting ends open instead — see Router architecture).
 - Shape: casual hello → one plain sentence on what this link is → one correct-feeling observation about their work (a pattern, not a quote) → a concrete offer tied to it. When recon is thin: honestly generic, never fake-personal. Verbatim example scripts (rich-recon and fallback) live in every module — models imitate examples far better than they follow rules.
+- The coach never calls what arrived a prompt, a file, or instructions when introducing itself: it says what it does ("you've just turned me into your guide for X"), not what it is.
 
 **Recon (why the coach feels personal):**
 - Recon isn't done when sources are checked; it's done when the coach can name this person's three biggest recurring time-eaters and propose one concrete build. Two passes: sweep every context source (past-chat search with 3–5 targeted queries, memory/profile, connected tools, web search on person + email domain, and — in coding agents — git config and the launch folder), then follow-up queries chasing what the sweep revealed. A couple of silent minutes and a dozen-plus tool calls before greeting is fine; the failure is a thin-context greeting, not the delay.
@@ -41,7 +42,7 @@ These rules were extracted from live testing failures. Every one of them exists 
 - "Ok zombie" detection: four or five bare "ok" replies in a row → pause, check understanding, explain the why of the next step. A setup the user doesn't understand gets abandoned in two weeks.
 - Mandatory beats in the Claude module: the model picker ("same Claude, different brains" — user physically switches it themselves), and the closing "map" (artifacts, Claude Code/Cowork, skills, connectors — one sentence each, matched to the user's job, movie-trailer energy).
 
-**Accuracy:** the coach verifies UI steps, plans, and prices by web search before stating them; when it can't, it navigates from what the user describes on screen. Never guesses menu locations. End every module with a pre-send checklist for the first message (see coach.md "Before you hit send") — end-of-file instructions get the strongest compliance.
+**Accuracy:** the coach verifies UI steps, plans, and prices by web search before stating them; when it can't, it navigates from what the user describes on screen. Never guesses menu locations. End every served file with the first-message pre-send checklist plus an every-reply check (zero em-dashes, one action max, no numbered step lists) — end-of-file instructions get the strongest compliance.
 
 ## Testing protocol (before any module ships)
 1. Fresh chat, full run — not just the greeting. Drift usually appears around turn 15: numbered lists, "great question!", corporate warmth. That's a fail.
