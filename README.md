@@ -14,7 +14,7 @@ Pick whichever works:
 https://md.aheadofthewave.ai
 ```
 
-The coach says hello, asks what you need, and takes it from there. Already know you want the Claude setup? Skip the front door and paste `https://md.aheadofthewave.ai/claude` instead.
+The coach says hello, asks what you need, and takes it from there. Already know what you're after? Skip the front door: `https://md.aheadofthewave.ai/claude` for the Claude setup, `https://md.aheadofthewave.ai/cowork` for Claude Cowork.
 
 **2. Copy the text.** If the link doesn't fetch (some plans can't browse), open [`coach.md`](./coach.md), copy the whole thing, paste it into a new chat. Same result.
 
@@ -30,6 +30,7 @@ Share the link with your team. Each person runs it in their own chat, at their o
 
 - `index.md` — the front door, served at the root link. Greets you, figures out what you need, and continues into the right module without you noticing a handoff.
 - `coach.md` — the Claude setup coach. Instructions written *for the AI*, not for you. Reading it spoils nothing, but talking to it is the product.
+- `cowork.md` — the Claude Cowork coach, for work that lives in the files and folders on your computer. Same format, same rules.
 - `CLAUDE.md` / `AGENTS.md` — internal briefs for the tools that maintain this repo. Not part of the product.
 
 More modules coming.
